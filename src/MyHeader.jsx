@@ -1,4 +1,4 @@
 function Header() {
-  return <h2 className="bold">ToDo App</h2>;
+  return <h1 className="m-4">ToDo App</h1>;
 }
 export default Header;
