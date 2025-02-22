@@ -3,23 +3,25 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./MyHeader";
 import ToDoInput from "./ToDoInput";
 import ToDoTask1 from "./ToDoTask1";
-import ToDoTask2 from "./ToDoTask2";
+// import ToDoTask2 from "./ToDoTask2";
 import "./style.css";
-import React from "react";
-
 
 function App() {
-
+  let tasks = [
+    { task: "Buy Groceries", date: "16/2/2025" },
+    { task: "Complete Homework", date: "19/2/2025" },
+  ];
   return (
-    <React.Fragment>
-      <center class="container">
-        <Header/>
-        <ToDoInput/>
-        <ToDoTask1/>
-        <ToDoTask2/>
-      </center>
-    </React.Fragment>
-  )
+    <>
+      <div className="container">
+        <Header />
+        <ToDoInput />
+        {tasks.map((task, index) => (
+          <ToDoTask1 key={index} task={task.task} date={task.date} />
+        ))}
+      </div>
+    </>
+  );
 }
 
-export default App
+export default App;
