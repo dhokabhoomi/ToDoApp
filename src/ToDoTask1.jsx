@@ -7,26 +7,31 @@ function ToDoTask1({ tasks, setTasks }) {
       .filter((task) => task !== null);
     setTasks(updatedList);
   }
-  if (!tasks || !Array.isArray(tasks)) {
-    console.error("Tasks is not an Array: ", tasks);
-    return <div>No Tasks available</div>;
-  }
   return (
-    <div className="Task-container">
-      {tasks.map((task, index) => (
-        <div key={index} className="row mb-2">
-          <div className="col-md-5">{task.text}</div>
-          <div className="col-md-5">{task.date}</div>
-          <div className="col-sm-2 d-flex">
-            <button
-              className="btn btn-danger"
-              onClick={() => deleteTask(index)}
-            >
-              Delete
-            </button>
-          </div>
+    <div className="task-container py-4">
+      <h4 className="task-list-title mb-3">My Tasks</h4>
+      {tasks.length === 0 ? (
+        <div className="empty-state p-5 text-center">
+          <p>You have no tasks! Add one to get started.</p>
         </div>
-      ))}
+      ) : (
+        tasks.map((task, index) => (
+          <div key={index} className="task-items row mb-3">
+            <div className="col-md-11">
+              <div className="task-text">{task.text}</div>
+              <div className="task-date">{task.date}</div>
+            </div>
+            <div className="col-sm-1 d-flex">
+              <button
+                className="btn btn-danger delete-btn"
+                onClick={() => deleteTask(index)}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        ))
+      )}
     </div>
   );
 }

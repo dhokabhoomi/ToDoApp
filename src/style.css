@@ -1,4 +1,146 @@
-.btn {
-  width: 100px;
+/* General Styling */
+body {
+  background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+/* Main Container */
+.app-container {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  width: 100vw;
+  padding: 30px;
+}
+
+/* Title & Subtitles */
+.title {
+  color: #5e548e;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.app-subtitle {
+  color: #9a8c98;
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Input Box */
+.input-container {
+  background-color: #f3e5f5;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.input-title {
+  color: #5e548e;
+  font-size: 18px;
+  font-weight: 600;
+}
+.input-text,
+.input-date {
   height: 40px;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 10px;
+  width: 120px;
+  height: 40px;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+/* Add Button */
+
+.add-btn {
+  background-color: #5e548e;
+  color: #fff;
+}
+
+.add-btn:hover {
+  background-color: #4a406d;
+}
+
+/* Delete Button */
+
+.delete-btn {
+  background-color: #e63946;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #b8323e;
+  transform: scale(1.05);
+}
+
+/* Task Section Container */
+.task-container {
+  background-color: #f6f2ff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+/* Task List Title */
+.task-list-title {
+  color: #5e548e;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Individual Task Item */
+.task-items {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-left: 6px solid #5e548e;
+  height: 90px;
+}
+
+/* Task Details (Text & Date) */
+
+.task-text {
+  font-weight: 600;
+  font-size: 16px;
+  color: #4a406d;
+}
+
+.task-date {
+  color: #8d75a3;
+  font-size: 14px;
+}
+
+/* Responsive Fix */
+@media (max-width: 500px) {
+  .task-items {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .delete-btn {
+    margin-top: 8px;
+    align-self: flex-end;
+  }
 }

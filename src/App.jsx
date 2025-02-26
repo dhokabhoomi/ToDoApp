@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./MyHeader";
 import ToDoInput from "./ToDoInput";
 import ToDoTask1 from "./ToDoTask1";
-// import ToDoTask2 from "./ToDoTask2";
 import "./style.css";
 import { useState } from "react";
 
@@ -15,12 +14,9 @@ function App() {
   ]);
   return (
     <>
-      <div className="container text-center p-4">
+      <div className="container app-container py-4">
         <Header />
         <ToDoInput tasks={tasks} setTasks={setTasks} />
-        {/* {tasks.map((task, index) => (
-          <ToDoTask1 key={index} task={task.task} date={task.date} />
-        ))} */}
         <ToDoTask1 tasks={tasks} setTasks={setTasks} />
       </div>
     </>
