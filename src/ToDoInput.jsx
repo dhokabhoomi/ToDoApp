@@ -15,9 +15,9 @@ function ToDoInput({ setTasks, tasks }) {
 
   return (
     <div className="input-container py-4 mb-4">
-      <h4 className="input-title mb-3">Add New Task</h4>
+      <h4 className="input-title">Add New Task</h4>
       <div className="row g-2">
-        <div className="col-sm-6">
+        <div className="col-sm-3">
           <input
             type="text"
             className="form-control input-text"
@@ -26,7 +26,7 @@ function ToDoInput({ setTasks, tasks }) {
             onChange={(e) => settaskText(e.target.value)}
           />
         </div>
-        <div className="col-sm-5">
+        <div className="col-sm-3">
           <input
             type="date"
             className="form-control input-date"
@@ -34,9 +34,9 @@ function ToDoInput({ setTasks, tasks }) {
             onChange={(e) => settaskDate(e.target.value)}
           />
         </div>
-        <div className="col-sm-1 d-flex">
+        <div className="col-sm-2 d-flex justify-content-center">
           <button className="btn btn-success add-btn" onClick={addItem}>
-            Add
+            Add Task
           </button>
         </div>
       </div>
