@@ -15,13 +15,13 @@ function ToDoTask1({ tasks, setTasks }) {
           <p>You have no tasks! Add one to get started.</p>
         </div>
       ) : (
-        tasks.map((task, index) => (
-          <div key={index} className="task-items row mb-3">
-            <div className="col-md-11">
-              <div className="task-text">{task.text}</div>
-              <div className="task-date">{task.date}</div>
-            </div>
-            <div className="col-sm-1 d-flex">
+        <div className="task-grid">
+          {tasks.map((task, index) => (
+            <div key={index} className="task-items">
+              <div className="task-details">
+                <div className="task-text">{task.text}</div>
+                <div className="task-date">{task.date}</div>
+              </div>
               <button
                 className="btn btn-danger delete-btn"
                 onClick={() => deleteTask(index)}
@@ -29,8 +29,8 @@ function ToDoTask1({ tasks, setTasks }) {
                 Delete
               </button>
             </div>
-          </div>
-        ))
+          ))}
+        </div>
       )}
     </div>
   );
