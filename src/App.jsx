@@ -1,4 +1,3 @@
-// import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./MyHeader";
 import ToDoInput from "./ToDoInput";
