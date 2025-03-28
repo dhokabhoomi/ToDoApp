@@ -14,8 +14,9 @@ body {
 .app-container {
   background-color: #fff;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  width: 100vw;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  width: 90vw;
+  max-width: 1500px;
   padding: 30px;
 }
 
@@ -23,15 +24,15 @@ body {
 
 .title {
   color: #5e548e;
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 700;
-  margin-bottom: 4px !important;
+  margin-bottom: 8px !important;
 }
 
 .app-subtitle {
   color: #9a8c98;
   font-size: 18px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 /* Input Box */
@@ -39,20 +40,55 @@ body {
 .input-container {
   background-color: #f6f2ff;
   border-radius: 12px;
-  padding: 16px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .input-title {
   color: #5e548e;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
-  margin-bottom: 32px;
+  margin-bottom: 12px;
 }
+
+.form-control {
+  border-radius: 8px;
+  font-size: 16px;
+  border: 1px solid #b79fd5;
+}
+.form-control:focus {
+  border-color: #8d75a3;
+  box-shadow: 0 0 6px rgba(124, 77, 255, 0.3);
+}
+
+/* Styling input fields */
+
 .input-text,
-.input-date {
+.input-date,
+.input-priority {
   height: 40px;
+  width: 100%;
+  font-size: 16px;
 }
+
+.dropdown-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #5e548e;
+  font-size: 16px;
+}
+
+/* .input-priority {
+  appearance: none;
+  background: white
+    url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 10'%3E%3Cpolygon points='0,0 20,0 10,10' fill='%235e548e'/%3E%3C/svg%3E")
+    no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+} */
 
 /* Buttons */
 
@@ -60,9 +96,9 @@ body {
   border-radius: 8px;
   width: 160px;
   height: 40px;
-  font-size: 16px;
+  font-size: 18px;
   transition: all 0.3s ease-in-out;
-  border: none;
+  /* border: none; */
   cursor: pointer;
 }
 
@@ -71,6 +107,7 @@ body {
 .add-btn {
   background-color: #5e548e;
   color: #fff;
+  /* font-weight: 600; */
 }
 
 .add-btn:hover {
@@ -82,9 +119,6 @@ body {
 .delete-btn {
   background-color: #c71d2b;
   color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  border: none;
   transition: 0.3s ease;
   width: 100px;
   justify-self: end;
@@ -96,17 +130,32 @@ body {
   transform: scale(1.05);
 }
 
-/* Task Section Container */
-
-/* Task List Title */
-
-.task-list-title {
-  color: #5e548e;
-  font-size: 24px;
-  font-weight: 600;
+.edit-btn {
+  background-color: #ff9f1c;
+  color: white;
+  transition: 0.3s ease;
+  width: 100px;
+  justify-self: end;
+  align-self: center;
 }
 
-/* Individual Task Item */
+.edit-btn:hover {
+  background-color: #e68a00;
+  transform: scale(1.05);
+  color: white;
+}
+
+.save-btn {
+  background-color: #8d75a3;
+  border: none;
+}
+
+.save-btn:hover {
+  background-color: #746186;
+  transform: scale(1.05);
+}
+
+/* Task Section */
 
 .task-container {
   background-color: #f6f2ff;
@@ -114,32 +163,45 @@ body {
   padding: 20px;
 }
 
+.task-list-title {
+  color: #5e548e;
+  font-size: 24px;
+  font-weight: 600;
+}
+
 .task-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 16px;
+  justify-content: flex-start;
+  max-width: 100%;
 }
 
 .task-items {
   background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-  padding: 14px;
-  margin-bottom: 12px;
-  display: grid;
-  grid-template-columns: auto auto;
-  align-items: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 16px;
   border-left: 6px solid #5e548e;
-  height: auto;
-  min-height: 90px;
-  min-width: 250px;
+  /* margin-bottom: 12px; */
+  width: 100%;
+  min-height: 100px;
+  max-width: 450px;
 }
+
+.edit-toggle {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Individual Task Item */
 
 /* Task Details (Text & Date) */
 
 .task-details {
   display: flex;
   flex-direction: column;
+  min-height: 100px;
 }
 .task-text {
   font-weight: 600;
@@ -151,6 +213,11 @@ body {
   color: #8d75a3;
   font-size: 14px;
 }
+.task-priority {
+  color: #8d75a3;
+  font-size: 16px;
+  font-weight: 600;
+}
 
 .empty-state {
   font-size: 20px;
@@ -158,14 +225,54 @@ body {
   color: #5e548e;
 }
 
-@media (max-width: 500px) {
-  .task-items {
-    flex-direction: column;
-    align-items: flex-start;
+@media (max-width: 768px) {
+  .app-container {
+    width: 95vw;
+    margin: 20px;
   }
 
-  .delete-btn {
-    margin-top: 8px;
-    align-self: flex-end;
+  .title {
+    font-size: 32px;
+  }
+
+  .app-subtitle {
+    font-size: 16px;
+  }
+
+  .task-grid {
+    grid-template-columns: repeat(2, 350px);
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .task-items {
+    width: 100%;
+  }
+}
+@media (max-width: 500px) {
+  .app-container {
+    margin: 15px;
+  }
+  .title {
+    font-size: 28px;
+  }
+  .app-subtitle {
+    font-size: 14px;
+  }
+  .task-items {
+    /* display: flex;
+    flex-direction: column;
+    align-items: start; */
+    padding: 12px;
+  }
+  .btn {
+    width: 120px;
+    height: 36px;
+    font-size: 14px;
+  }
+  .btn-danger,
+  .btn-warning {
+    width: 80px;
+    height: 36px;
   }
 }

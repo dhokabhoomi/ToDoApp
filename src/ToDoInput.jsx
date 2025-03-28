@@ -1,15 +1,18 @@
 import { useState } from "react";
+import { AiOutlineDown } from "react-icons/ai";
 
 function ToDoInput({ setTasks, tasks }) {
   let [taskText, settaskText] = useState("");
   let [taskDate, settaskDate] = useState("");
+  let [priority, setPriority] = useState("Medium");
   function addItem() {
     if (taskText && taskDate) {
-      let task = [...tasks, { text: taskText, date: taskDate }];
+      let task = [...tasks, { text: taskText, date: taskDate, priority }];
       console.log(task);
       setTasks(task);
       settaskText("");
       settaskDate("");
+      setPriority("Medium");
     }
   }
 
@@ -33,6 +36,18 @@ function ToDoInput({ setTasks, tasks }) {
             value={taskDate}
             onChange={(e) => settaskDate(e.target.value)}
           />
+        </div>
+        <div className="col-sm-2 position-relative">
+          <select
+            className="form-control input-priority"
+            value={priority}
+            onChange={(e) => setPriority(e.target.value)}
+          >
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+          <AiOutlineDown className="dropdown-icon" />
         </div>
         <div className="col-sm-2 d-flex justify-content-center">
           <button className="btn btn-success add-btn" onClick={addItem}>
