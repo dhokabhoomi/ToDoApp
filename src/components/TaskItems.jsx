@@ -88,7 +88,7 @@ function TaskItems({ task, deleteTask, editTask, toggleTaskCompleted }) {
       ) : (
         <>
           <div className="task-title">
-            <div className="d-flex align-items-center flex-grow-1 me-3">
+            <div className="d-flex align-items-center flex-grow-1 me-3 task-text-container">
               <input
                 className="form-check-input me-2"
                 type="checkbox"
@@ -100,12 +100,13 @@ function TaskItems({ task, deleteTask, editTask, toggleTaskCompleted }) {
                 id={`task-${task.id}`}
               />
               <label
-                className="form-check-label task-text"
+                className="form-check-label task-text truncate-text"
                 htmlFor={`task-${task.id}`}
                 style={{
                   textDecoration: task.completed ? "line-through" : "none",
                   opacity: task.completed ? 0.7 : 1,
                 }}
+                title={task.text}
               >
                 {task.text}
               </label>

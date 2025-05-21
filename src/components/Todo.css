@@ -254,6 +254,26 @@ body {
   width: 100%;
 }
 
+.task-text-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.truncate-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  display: block;
+}
+
+.truncate-text:hover {
+  white-space: normal;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+}
+
 .task-text {
   font-weight: 600;
   font-size: 18px;
