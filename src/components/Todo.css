@@ -206,7 +206,9 @@ body {
   box-shadow: 0 6px 18px rgba(94, 84, 142, 0.2);
   padding: 28px 24px;
   border-left: 8px solid #5e548e;
-  flex: 1 0 300px;
+  min-width: 300px;
+  max-width: 100%;
+  width: 460px;
   min-height: 120px;
   display: flex;
   flex-direction: column;
@@ -249,7 +251,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* margin-bottom: 12px; */
   width: 100%;
 }
 
@@ -270,7 +271,6 @@ body {
 
 .task-date {
   color: #9a8c98;
-  /* margin-top: 8px; */
   margin-left: 34px;
 }
 
