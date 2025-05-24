@@ -2,28 +2,48 @@ import { useState } from "react";
 import TaskItems from "./TaskItems";
 
 function TaskList({ tasks, deleteTask, editTask, toggleTaskCompleted }) {
-  const [sortByDate, setSortByDate] = useState(false);
+  // const [sortByDate, setSortByDate] = useState(false);
+  const [sortOption, setSortOption] = useState("original");
 
-  // Sort tasks by due date (ascending) or keep original order
-  const sortedTasks = sortByDate
-    ? [...tasks].sort((a, b) => {
-        // Handle null or empty dates by pushing them to the end
-        if (!a.date) return 1;
-        if (!b.date) return -1;
-        return new Date(a.date) - new Date(b.date);
-      })
-    : tasks;
+  // Check if all task dates are the same or missing
+  const allDatesSame = (() => {
+    const validDates = tasks
+      .map((t) => t.date)
+      .filter((d) => d && !isNaN(new Date(d).getTime()));
+    if (validDates.length <= 1) return true;
+    return validDates.every((d) => d === validDates[0]);
+  })();
+
+  // Sort based on selected option
+  const sortedTasks =
+    sortOption === "date" && !allDatesSame
+      ? [...tasks].sort((a, b) => {
+          if (!a.date) return 1;
+          if (!b.date) return -1;
+          return new Date(a.date) - new Date(b.date);
+        })
+      : tasks;
 
   return (
     <div className="task-container">
       <div className="task-list-header">
         <h2 className="task-list-title">Your Tasks</h2>
-        <button
+        {/* <button
           className="btn btn-outline-secondary"
           onClick={() => setSortByDate(!sortByDate)}
         >
           {sortByDate ? "Original Order" : "Sort by Due Date"}
-        </button>
+        </button> */}
+        <select
+          className="form-select"
+          style={{ width: "220px" }}
+          value={sortOption}
+          onChange={(e) => setSortOption(e.target.value)}
+          disabled={allDatesSame}
+        >
+          <option value="original">Original Order</option>
+          <option value="date">Sort by Due Date</option>
+        </select>
       </div>
 
       {tasks.length === 0 ? (
