@@ -112,13 +112,15 @@ body {
 }
 
 /* Delete Button */
-.delete-btn {
+.delete-btn,
+.save-btn {
   background-color: #5e548e;
   color: #fff;
   transition: 0.3s ease;
 }
 
-.delete-btn:hover {
+.delete-btn:hover,
+.save-btn:hover {
   background-color: #4a406d;
   color: #fff;
 }
@@ -131,25 +133,12 @@ body {
   color: #5e548e;
 }
 
-.edit-btn:hover {
+.edit-btn:hover,
+.cancel-btn:hover {
   background-color: #5e548e;
   color: #fff;
 }
 
-.cancel-btn:hover {
-  background-color: #8d75a3;
-  color: #fff;
-}
-
-.save-btn {
-  background-color: #8d75a3;
-  color: #fff;
-}
-
-.save-btn:hover {
-  background-color: #746186;
-  color: #fff;
-}
 
 .btn-outline-secondary {
   width: auto;
