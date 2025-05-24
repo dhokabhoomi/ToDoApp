@@ -2,7 +2,6 @@ import { useState } from "react";
 import TaskItems from "./TaskItems";
 
 function TaskList({ tasks, deleteTask, editTask, toggleTaskCompleted }) {
-  // const [sortByDate, setSortByDate] = useState(false);
   const [sortOption, setSortOption] = useState("original");
 
   // Check if all task dates are the same or missing
@@ -28,12 +27,6 @@ function TaskList({ tasks, deleteTask, editTask, toggleTaskCompleted }) {
     <div className="task-container">
       <div className="task-list-header">
         <h2 className="task-list-title">Your Tasks</h2>
-        {/* <button
-          className="btn btn-outline-secondary"
-          onClick={() => setSortByDate(!sortByDate)}
-        >
-          {sortByDate ? "Original Order" : "Sort by Due Date"}
-        </button> */}
         <select
           className="form-select"
           style={{ width: "220px" }}
@@ -53,21 +46,17 @@ function TaskList({ tasks, deleteTask, editTask, toggleTaskCompleted }) {
       ) : (
         <div className="task-grid">
           {sortedTasks.map((task) => {
-            console.log(`Creating TaskItem for task ID: ${task.id}`);
             return (
               <TaskItems
                 key={task.id}
                 task={task}
                 deleteTask={() => {
-                  console.log(`Delete called for task ID: ${task.id}`);
                   deleteTask(task.id);
                 }}
                 editTask={(newText, newDate, newPriority) => {
-                  console.log(`Edit called for task ID: ${task.id}`);
                   editTask(task.id, newText, newDate, newPriority);
                 }}
                 toggleTaskCompleted={() => {
-                  console.log(`Toggle called for task ID: ${task.id}`);
                   toggleTaskCompleted(task.id);
                 }}
               />

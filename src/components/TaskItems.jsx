@@ -93,8 +93,7 @@ function TaskItems({ task, deleteTask, editTask, toggleTaskCompleted }) {
                 className="form-check-input me-2"
                 type="checkbox"
                 checked={task.completed}
-                onChange={(e) => {
-                  console.log("Checkbox clicked for task ID:", task.id);
+                onChange={() => {
                   toggleTaskCompleted();
                 }}
                 id={`task-${task.id}`}
