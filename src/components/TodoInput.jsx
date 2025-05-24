@@ -4,7 +4,7 @@ import { AiOutlineDown } from "react-icons/ai";
 function TodoInput({ addTask }) {
   const [taskText, setTaskText] = useState("");
   const [taskDate, setTaskDate] = useState("");
-  const [priority, setPriority] = useState("High");
+  const [priority, setPriority] = useState("");
 
   const handleAdd = () => {
     if (!taskText.trim()) {
@@ -15,8 +15,21 @@ function TodoInput({ addTask }) {
       alert("Task name is too long (max 100 characters).");
       return;
     }
-    if (!taskDate.trim() || isNaN(new Date(taskDate).getTime())) {
-      alert("Please enter a valid due date.");
+    if (!taskDate.trim()) {
+      alert("Please enter a due date.");
+      return;
+    }
+    const selectedDate = new Date(taskDate);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (isNaN(selectedDate.getTime())) {
+      alert("Invalid date format.");
+      return;
+    }
+
+    if (selectedDate < today) {
+      alert("The due date cannot be in the past.");
       return;
     }
     if (!priority) {
@@ -28,7 +41,7 @@ function TodoInput({ addTask }) {
     // Reset form fields after adding task
     setTaskText("");
     setTaskDate("");
-    setPriority("High");
+    setPriority("");
   };
 
   // Handle form submission with Enter key
@@ -66,6 +79,9 @@ function TodoInput({ addTask }) {
             value={priority}
             onChange={(e) => setPriority(e.target.value)}
           >
+            <option value="" disabled>
+              Select Priority
+            </option>
             <option value="High">High</option>
             <option value="Medium">Medium</option>
             <option value="Low">Low</option>
