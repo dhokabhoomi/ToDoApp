@@ -8,14 +8,14 @@ A simple, responsive, and feature-rich Todo application built with **React + Vit
 
 ## 🚀 Features
 
-- ✅ **Add Tasks** — with title, description, and due date
-- ✏️ **Edit Tasks** — modify any field as needed
-- ❌ **Delete Tasks** — remove completed or unwanted tasks
-- ✔️ **Mark as Completed** — strike-through effect for finished tasks
-- 📅 **Sort by Due Date** — ascending or descending order
-- 💾 **Persistent Storage** — tasks saved to `localStorage`
-- ⚠️ **Error Handling** — warns if `localStorage` is unavailable or fails
-- 📱 **Responsive UI** — built with Bootstrap for mobile-friendly experience
+- **Add Tasks** — with title, description, and due date
+- **Edit Tasks** — modify any field as needed
+- **Delete Tasks** — remove completed or unwanted tasks
+- **Mark as Completed** — strike-through effect for finished tasks
+- **Sort by Due Date** — ascending or descending order
+- **Persistent Storage** — tasks saved to `localStorage`
+- **Error Handling** — warns if `localStorage` is unavailable or fails
+- **Responsive UI** — built with Bootstrap for mobile-friendly experience
 
 ## 🛠 Tech Stack
 
