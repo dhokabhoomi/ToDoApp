@@ -21,7 +21,9 @@ function TaskItems({ task, deleteTask, editTask, toggleTaskCompleted }) {
     setNewPriority(task.priority);
   }, [task]);
 
-  const handleEdit = () => {
+  const handleEdit = (e) => {
+    e.preventDefault();
+
     if (!newText.trim() || !newDate || !newPriority) {
       alert("Task name, due date, and priority are required");
       return;
@@ -51,23 +53,29 @@ function TaskItems({ task, deleteTask, editTask, toggleTaskCompleted }) {
       data-completed={task.completed}
     >
       {isEditing ? (
-        <div className="edit-toggle">
+        <form className="edit-toggle" onSubmit={handleEdit}>
           <input
             type="text"
             className="form-control mb-2 input-text"
             value={newText}
             onChange={(e) => setNewText(e.target.value)}
+            aria-label="Edit task name"
+            required
           />
           <input
             type="date"
             className="form-control mb-2 input-date"
             value={newDate}
             onChange={(e) => setNewDate(e.target.value)}
+            aria-label="Edit due date"
+            required
           />
           <select
             className="form-control mb-2 input-priority"
             value={newPriority}
             onChange={(e) => setNewPriority(e.target.value)}
+            aria-label="Edit priority"
+            required
           >
             <option value="High">High</option>
             <option value="Medium">Medium</option>
@@ -75,16 +83,17 @@ function TaskItems({ task, deleteTask, editTask, toggleTaskCompleted }) {
           </select>
           <div className="d-flex gap-3 mt-4">
             <button
+              type="button"
               className="btn cancel-btn"
               onClick={() => setIsEditing(false)}
             >
               Cancel
             </button>
-            <button className="btn save-btn" onClick={handleEdit}>
+            <button type="submit" className="btn save-btn">
               Save
             </button>
           </div>
-        </div>
+        </form>
       ) : (
         <>
           <div className="task-title">
@@ -94,9 +103,11 @@ function TaskItems({ task, deleteTask, editTask, toggleTaskCompleted }) {
                 type="checkbox"
                 checked={task.completed}
                 onChange={() => {
-                  toggleTaskCompleted();
+                  toggleTaskCompleted(task.id);
                 }}
                 id={`task-${task.id}`}
+                aria-checked={task.completed}
+                aria-label={`Mark task "${task.text}" as completed`}
               />
               <label
                 className="form-check-label task-text truncate-text"
@@ -118,10 +129,18 @@ function TaskItems({ task, deleteTask, editTask, toggleTaskCompleted }) {
             {formatDate(task.date)}
           </div>
           <div className="task-actions">
-            <button className="btn edit-btn" onClick={startEditing}>
+            <button
+              className="btn edit-btn"
+              onClick={startEditing}
+              aria-label={`Edit task "${task.text}"`}
+            >
               Edit
             </button>
-            <button className="btn delete-btn" onClick={deleteTask}>
+            <button
+              className="btn delete-btn"
+              onClick={() => deleteTask(task.id)}
+              aria-label={`Delete task "${task.text}"`}
+            >
               Delete
             </button>
           </div>

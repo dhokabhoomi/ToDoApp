@@ -5,11 +5,11 @@ import Errors from "./components/Errors";
 
 const App = () => {
   return (
-    <div className="d-grid py-4 min-vh-100">
+    <main className="d-grid py-4 min-vh-100">
       <Errors>
         <Todo />
       </Errors>
-    </div>
+    </main>
   );
 };
 

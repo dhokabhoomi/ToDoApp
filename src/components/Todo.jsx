@@ -85,13 +85,13 @@ function Todo() {
   };
 
   return (
-    <div className="container-fluid p-0">
+    <section className="container-fluid p-0">
       {storageError && (
         <div className="alert alert-warning mt-3" role="alert">
           {storageError}
         </div>
       )}
-      <div className="app-container py-4">
+      <main className="app-container py-4">
         <Header />
         <TodoInput addTask={addTask} />
         <TaskList
@@ -100,8 +100,8 @@ function Todo() {
           editTask={editTask}
           toggleTaskCompleted={toggleTaskCompleted}
         />
-      </div>
-    </div>
+      </main>
+    </section>
   );
 }
 

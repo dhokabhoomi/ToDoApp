@@ -24,7 +24,7 @@ function TaskList({ tasks, deleteTask, editTask, toggleTaskCompleted }) {
       : tasks;
 
   return (
-    <div className="task-container">
+    <section className="task-container">
       <div className="task-list-header">
         <h2 className="task-list-title">Your Tasks</h2>
         <select
@@ -44,7 +44,7 @@ function TaskList({ tasks, deleteTask, editTask, toggleTaskCompleted }) {
           <div className="empty-state">No tasks yet. Add one!</div>
         </div>
       ) : (
-        <div className="task-grid">
+        <div className="task-grid" aria-label="Task-List">
           {sortedTasks.map((task) => {
             return (
               <TaskItems
@@ -64,7 +64,7 @@ function TaskList({ tasks, deleteTask, editTask, toggleTaskCompleted }) {
           })}
         </div>
       )}
-    </div>
+    </section>
   );
 }
 

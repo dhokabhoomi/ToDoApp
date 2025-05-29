@@ -44,15 +44,18 @@ function TodoInput({ addTask }) {
     setPriority("");
   };
 
-  // Handle form submission with Enter key
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      handleAdd();
-    }
+  // Form submit handler
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleAdd();
   };
 
   return (
-    <div className="input-container py-4 mb-4">
+    <form
+      className="input-container py-4 mb-4"
+      onSubmit={handleSubmit}
+      noValidate
+    >
       <h4 className="input-title mb-3">Add New Task</h4>
       <div className="row g-3">
         <div className="col-lg-3 col-md-6 col-12">
@@ -62,7 +65,6 @@ function TodoInput({ addTask }) {
             placeholder="Task Name"
             value={taskText}
             onChange={(e) => setTaskText(e.target.value)}
-            onKeyDown={handleKeyDown}
           />
         </div>
         <div className="col-lg-3 col-md-6 col-12">
@@ -89,12 +91,12 @@ function TodoInput({ addTask }) {
           <AiOutlineDown className="dropdown-icon" />
         </div>
         <div className="col-lg-3 col-md-6 col-12">
-          <button className="btn add-btn w-100" onClick={handleAdd}>
+          <button type="submit" className="btn add-btn w-100">
             Add Task
           </button>
         </div>
       </div>
-    </div>
+    </form>
   );
 }
 
