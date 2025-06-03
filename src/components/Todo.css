@@ -192,7 +192,8 @@ body {
 }
 
 .task-sort-dropdown.disabled-text {
-  color: rgba(0, 0, 0, 0.5); /* Semi-transparent text */
+  color: rgba(0, 0, 0, 0.5);
+  cursor: not-allowed;
 }
 
 .task-grid {
