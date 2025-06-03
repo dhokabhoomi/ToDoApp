@@ -42,7 +42,7 @@ body {
   background-color: #f6f2ff;
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
   margin-bottom: 24px;
 }
 
@@ -56,7 +56,7 @@ body {
 .form-control {
   border-radius: 8px;
   font-size: 16px;
-  border: 1px solid #dfdfdf;
+  border: none;
   padding: 10px 12px;
   height: auto;
 }
@@ -73,6 +73,10 @@ body {
 .input-priority {
   width: 100%;
   font-size: 16px;
+}
+
+::placeholder {
+  color: #c8c8c8;
 }
 
 .dropdown-icon {
@@ -346,6 +350,7 @@ body {
   cursor: pointer;
   width: 18px;
   height: 18px;
+  border: 1px solid#bcbbbb;
 }
 
 @media (max-width: 992px) {
