@@ -28,8 +28,10 @@ function TaskList({ tasks, deleteTask, editTask, toggleTaskCompleted }) {
       <div className="task-list-header">
         <h2 className="task-list-title">Your Tasks</h2>
         <select
-          className="form-select"
-          style={{ width: "220px" }}
+          className={`task-sort-dropdown ${
+            allDatesSame ? "disabled-text" : ""
+          }`}
+          // style={{ width: "220px" }}
           value={sortOption}
           onChange={(e) => setSortOption(e.target.value)}
           disabled={allDatesSame}

@@ -181,6 +181,20 @@ body {
   margin-bottom: 0;
 }
 
+.task-sort-dropdown {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #000;
+  outline: none;
+  width: 220px;
+}
+
+.task-sort-dropdown.disabled-text {
+  color: rgba(0, 0, 0, 0.5); /* Semi-transparent text */
+}
+
 .task-grid {
   display: flex;
   flex-wrap: wrap;
@@ -189,6 +203,7 @@ body {
   gap: 24px;
   padding-left: 0;
 }
+
 .task-grid li {
   list-style-type: none;
   margin: 0;
